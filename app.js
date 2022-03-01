@@ -34,6 +34,20 @@ const getPostData = (req) => {
   return promise;
 };
 const serverHandle = (req, res) => {
+  if (req.method == "OPTIONS") {
+    res.writeHead(204, { "Content-type": "text/plain" });
+    res.end();
+    return;
+  }
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8002");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  res.setHeader("X-Powered-By", " 3.2.1");
+  res.setHeader("Content-Type", "application/json;charset=utf-8");
   //记录 access log
   access(
     `${req.method} -- ${req.url} -- ${
@@ -41,7 +55,6 @@ const serverHandle = (req, res) => {
     } -- ${Date.now()}`
   );
   //         env:process.env.NODE_ENV
-  res.setHeader("Content-type", "application/json");
   const url = req.url;
   req.path = url.split("?")[0];
   //解析参数

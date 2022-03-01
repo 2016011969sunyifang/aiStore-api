@@ -25,8 +25,8 @@ const handleUserRouter = (req, res) => {
     });
   }
   //注册
-  if (GET && req.path === "/api/user/register") {
-    const { username, password } = req.query;
+  if (POST && req.path === "/api/user/register") {
+    const { username, password } = req.body;
     const result = register(username, password);
     return result.then((row) => {
       if (row) {

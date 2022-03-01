@@ -48,3 +48,64 @@ GET -- /api/user/register?username=123&password=123 -- PostmanRuntime/7.29.0 -- 
 GET -- /api/user/register?username=123&password=123 -- PostmanRuntime/7.29.0 -- 1646017164587
 GET -- /api/user/register?username=123&password=123 -- PostmanRuntime/7.29.0 -- 1646017177267
 GET -- /api/user/register?username=123&password=123 -- PostmanRuntime/7.29.0 -- 1646018278224
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646036987159
+OPTIONS -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646037980844
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646037980924
+OPTIONS -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646037989501
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646037989538
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038002967
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038082487
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038082537
+POST -- /api/user/register?username=123&password=123 -- PostmanRuntime/7.29.0 -- 1646038197907
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646038229086
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646038446988
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038454528
+OPTIONS -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038462718
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038462766
+OPTIONS -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038899551
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038899616
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038948404
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646038948534
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646039148153
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646039196365
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039212480
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039212599
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039254312
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039254519
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039355466
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039355599
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039672784
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646039673054
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646039774365
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646040109210
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646040109463
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646040115947
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646098290320
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646099236449
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646099252739
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099262053
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099274671
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099274724
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099304484
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099304532
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646099309680
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099401816
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099401874
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099447683
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099447774
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099472366
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099472410
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099566028
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099566068
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1646099902367
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099920770
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646099973256
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100035379
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100258983
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100259026
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100343694
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100562890
+OPTIONS -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100566905
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100566950
+OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100573328
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100573365
