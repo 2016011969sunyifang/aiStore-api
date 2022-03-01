@@ -4,9 +4,9 @@ let MYSQL_CONF, REDIS_CONF;
 
 if (dev === "dev") {
   MYSQL_CONF = {
-    host: "106.14.196.158",
+    host: "sssss",
     user: "root",
-    password: "04bf828a99fbb4d8",
+    password: "ssssss",
     port: "3306",
     database: "takeoutstore",
   };
@@ -18,9 +18,9 @@ if (dev === "dev") {
 }
 if (dev === "production") {
   MYSQL_CONF = {
-    host: "106.14.196.158",
+    host: "ssssss",
     user: "root",
-    password: "04bf828a99fbb4d8",
+    password: "ssssss",
     port: "3306",
     database: "takeoutstore",
   };

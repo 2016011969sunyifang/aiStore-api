@@ -109,3 +109,5 @@ OPTIONS -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100566950
 OPTIONS -- /api/user/register -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100573328
 GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100573365
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100944831
+GET -- /api/captcha/img?width=100&height=50 -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 -- 1646100957053
