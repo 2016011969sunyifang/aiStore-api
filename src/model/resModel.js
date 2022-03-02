@@ -1,31 +1,32 @@
 class BaseModel {
-    constructor (data,message){
-        //参数判断
-        if(typeof data ==='string'){
-            this.message = data;
-            data = null;
-            message = null;
-        }
-        if(data){
-            this.data = data;
-        }
-        if(message){
-            this.message = message;
-        }
+  constructor(data, message) {
+    //参数判断
+    if (typeof data === "string") {
+      this.message = data;
+      data = null;
+      message = null;
     }
+    if (data) {
+      this.data = data;
+    }
+    if (message) {
+      this.message = message;
+    }
+  }
 }
 class SuccessModel extends BaseModel {
-    constructor(data,message){
-        super(data,message)
-        this.errno = 0
-    }
+  constructor(data, message) {
+    super(data, message);
+    this.code = 200;
+  }
 }
 class ErrorModel extends BaseModel {
-    constructor(data,message){
-        super(data,message);
-        this.errno = -1
-    }
+  constructor(data, message) {
+    super(data, message);
+    this.code = -1;
+  }
 }
 module.exports = {
-    SuccessModel,ErrorModel
-}
+  SuccessModel,
+  ErrorModel,
+};

@@ -1,11 +1,13 @@
 const { exec, escape } = require("../db/mysql.js");
 const login = (username, password) => {
-  const sql = `select username, realname from users where username='${escape(
+  const sql = `select username from user where username=${escape(
     username
-  )}' and password='${escape(password)}'`;
-  console.log(sql);
+  )} and password=${escape(password)}`;
   return exec(sql).then((rows) => {
-    return rows[0] || {};
+    return {
+      token:
+        "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
+    };
   });
   // if (username === 'sunrifa' && password === '123456') {
   //     return true
@@ -19,8 +21,28 @@ const register = (username, password) => {
 `;
   return exec(sql).then((insertData) => {
     return {
-      id: insertData,
+      token:
+        "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
     };
+  });
+  // if (username === 'sunrifa' && password === '123456') {
+  //     return true
+  // }
+  // return false
+};
+const getUserInfo = (username, password) => {
+  const sql = "";
+  const userInfo = {
+    email: "1743369777@qq.com",
+    headImg: "https://buqiyuan.gitee.io/img/logo.jpg",
+    loginIp: "101.231.62.66",
+    name: "小嫒同学",
+    nickName: "",
+    phone: "13553550634",
+    remark: null,
+  };
+  return exec(sql).then((insertData) => {
+    return userInfo;
   });
   // if (username === 'sunrifa' && password === '123456') {
   //     return true
@@ -30,4 +52,5 @@ const register = (username, password) => {
 module.exports = {
   login,
   register,
+  getUserInfo,
 };

@@ -1,26 +1,29 @@
-const mysql = require('mysql')
-const {MYSQL_CONF} = require('../config/db.js')
+const mysql = require("mysql");
+const { MYSQL_CONF } = require("../config/db.js");
 
 // 连接数据库
-const con = mysql.createConnection(MYSQL_CONF)
+const con = mysql.createConnection(MYSQL_CONF);
 
 // 连接数据库
-con.connect()
+con.connect();
 
 // 执行sql语句
 function exec(sql) {
-    return new Promise((resolve, reject) => {
-        con.query(sql, (err, result) => {
-            if (err) {
-                reject(err)
-                return
-            }
-            return resolve(result)
-        })
-    })
+  return new Promise((resolve, reject) => {
+    if (!sql) {
+      return resolve("");
+    }
+    con.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      return resolve(result);
+    });
+  });
 }
 
 module.exports = {
-    exec,
-    escape: mysql.escape
-}
+  exec,
+  escape: mysql.escape,
+};

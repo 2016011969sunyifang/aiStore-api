@@ -32,7 +32,6 @@ const handleBlogRouter = (req, res) => {
       author = req.session.username;
     }
     const result = getList(author, keyword);
-    console.log("result is ", result);
     return result.then((listData) => {
       return new SuccessModel(listData);
     });
@@ -54,7 +53,6 @@ const handleBlogRouter = (req, res) => {
     }
     req.body.author = req.session.username;
     const result = newBlog(req.body);
-    console.log("body is ", req.body);
     return result.then((newData) => {
       return new SuccessModel(newData);
     });
@@ -116,9 +114,7 @@ const handleBlogRouter = (req, res) => {
 //             // 强制查询自己的博客
 //             author = req.session.username
 //         }
-//         console.log('123')
 //         const result = getList(author, keyword)
-//         console.log('result is ', result)
 //         return result.then(listData => {
 //             return new SuccessModel(listData)
 //         })

@@ -1,26 +1,40 @@
-const { login, register } = require("./../controller/user");
+const { login, register, getUserInfo } = require("./../controller/user");
 const { SuccessModel, ErrorModel } = require("./../model/resModel");
 const handleUserRouter = (req, res) => {
   const GET = req.method === "GET";
   const POST = req.method === "POST";
   //登录
-  if (POST && req.path === "/api/user/login") {
+  if (POST && req.path === "/api/login") {
     const { username, password } = req.body;
     // const {username, password} = req.query
-    // console.log(username, password, req.body)
     const result = login(username, password);
     return result.then((row) => {
-      if (row.username) {
+      if (row) {
         // //操作cookie
         // res.setHeader('Set-Cookie',`username=${row.username};path=/;httpOnly`)
         //设置session
-        req.session.username = row.username;
-        req.session.realname = row.realname;
+        // req.session.username = row.username;
+        // req.session.realname = row.realname;
         // 设置redis的session的值
         // set(req.sessionId, req.session)
-        return new SuccessModel("登录成功");
+        return new SuccessModel(row, "登录成功");
       } else {
         return new ErrorModel("登录失败");
+      }
+    });
+  }
+  // 获取用户信息
+  if (GET && req.path === "/api/account/info") {
+    // const { username, password } = req.body;
+    // const {username, password} = req.query
+    // const result = login(username, password);
+
+    const result = getUserInfo();
+    return result.then((row) => {
+      if (row) {
+        return new SuccessModel(row, "获取用户信息成功");
+      } else {
+        return new ErrorModel("获取用户信息失败");
       }
     });
   }
@@ -30,7 +44,6 @@ const handleUserRouter = (req, res) => {
     const result = register(username, password);
     return result.then((row) => {
       if (row) {
-        console.log(row);
         // //操作cookie
         // res.setHeader('Set-Cookie',`username=${row.username};path=/;httpOnly`)
         //设置session
@@ -38,7 +51,7 @@ const handleUserRouter = (req, res) => {
         // req.session.realname = row.realname;
         // 设置redis的session的值
         // set(req.sessionId, req.session)
-        return new SuccessModel("注册成功");
+        return new SuccessModel(row, "注册成功");
       } else {
         return new ErrorModel("注册失败");
       }

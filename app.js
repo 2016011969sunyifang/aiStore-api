@@ -1,7 +1,9 @@
 const quertstring = require("querystring");
 const handleBlogRouter = require("./src/router/blog");
 const handleUserRouter = require("./src/router/user");
+const handleMenuRouter = require("./src/router/menu");
 const { access } = require("./src/utils/log");
+const { setAccessControl } = require("./src/utils/accessControl");
 
 // session数据
 const SESSION_DATA = {};
@@ -19,7 +21,6 @@ const getPostData = (req) => {
     let postData = "";
     req.on("data", (chunk) => {
       postData += chunk.toString();
-      console.log("data ", postData);
     });
 
     req.on("end", () => {
@@ -27,27 +28,18 @@ const getPostData = (req) => {
         resolve({});
         return;
       }
-      console.log("end ", postData);
       resolve(JSON.parse(postData));
     });
   });
   return promise;
 };
 const serverHandle = (req, res) => {
+  res = setAccessControl(res);
   if (req.method == "OPTIONS") {
     res.writeHead(204, { "Content-type": "text/plain" });
     res.end();
     return;
   }
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8002");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-  res.setHeader("X-Powered-By", " 3.2.1");
-  res.setHeader("Content-Type", "application/json;charset=utf-8");
   //记录 access log
   access(
     `${req.method} -- ${req.url} -- ${
@@ -71,7 +63,6 @@ const serverHandle = (req, res) => {
     const val = arr[1].trim();
     req.cookie[key] = val;
   });
-  console.log("token", req.cookie);
   // 处理session
   let userId = req.cookie.userid;
   let needSetCookie = false;
@@ -109,6 +100,18 @@ const serverHandle = (req, res) => {
         }
         res.end(JSON.stringify(userData));
       });
+      return;
+    }
+    // 处理menu路由
+    const menuResult = handleMenuRouter(req, res);
+    if (menuResult) {
+      menuResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
       return;
     }
     //路由未命中
