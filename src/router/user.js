@@ -9,7 +9,7 @@ const handleUserRouter = (req, res) => {
     // const {username, password} = req.query
     const result = login(username, password);
     return result.then((row) => {
-      if (row) {
+      if (row.rows.length !== 0) {
         // //操作cookie
         // res.setHeader('Set-Cookie',`username=${row.username};path=/;httpOnly`)
         //设置session

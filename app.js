@@ -2,6 +2,7 @@ const quertstring = require("querystring");
 const handleBlogRouter = require("./src/router/blog");
 const handleUserRouter = require("./src/router/user");
 const handleMenuRouter = require("./src/router/menu");
+const handleSiteRouter = require("./src/router/site");
 const { access } = require("./src/utils/log");
 const { setAccessControl } = require("./src/utils/accessControl");
 
@@ -106,6 +107,18 @@ const serverHandle = (req, res) => {
     const menuResult = handleMenuRouter(req, res);
     if (menuResult) {
       menuResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
+      return;
+    }
+    // 处理外卖站点路由
+    const siteResult = handleSiteRouter(req, res);
+    if (siteResult) {
+      siteResult.then((menuData) => {
         if (needSetCookie) {
           res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
         }

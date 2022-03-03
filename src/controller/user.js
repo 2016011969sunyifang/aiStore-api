@@ -5,6 +5,7 @@ const login = (username, password) => {
   )} and password=${escape(password)}`;
   return exec(sql).then((rows) => {
     return {
+      rows: rows,
       token:
         "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
     };
@@ -34,7 +35,7 @@ const getUserInfo = (username, password) => {
   const sql = "";
   const userInfo = {
     email: "1743369777@qq.com",
-    headImg: "https://buqiyuan.gitee.io/img/logo.jpg",
+    headImg: "https://s3.bmp.ovh/imgs/2022/03/bd52f28f3f79cdea.gif",
     loginIp: "101.231.62.66",
     name: "小嫒同学",
     nickName: "",
