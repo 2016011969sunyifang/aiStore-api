@@ -1,15 +1,33 @@
 const { exec } = require("../db/mysql.js");
 const xss = require("xss");
-const getList = (author, keyword) => {
-  let sql = `select * from blogs where 1=1`;
-  if (author) {
-    sql += ` and author='${author}' `;
+const getList = (params) => {
+  let sql = `select * from takeOut where 1=1`;
+  if (params.region) {
+    sql += ` and region='${params.region}' `;
   }
-
-  if (keyword) {
-    sql += ` and title like '%${keyword}%' `;
+  if (params.businessCircle) {
+    sql += ` and businessCircle like '%${params.businessCircle}%' `;
+  }
+  if (params.name) {
+    sql += ` and name like '%${params.name}%' `;
+  }
+  if (params.webmaster) {
+    sql += ` and webmaster like '%${params.webmaster}%' `;
+  }
+  if (params.platform) {
+    sql += ` and platform='${params.platform}' `;
+  }
+  if (params.hasDormitory) {
+    sql += ` and hasDormitory='${params.hasDormitory}' `;
+  }
+  if (params.hasElectroMobile) {
+    sql += ` and hasElectroMobile='${params.hasElectroMobile}' `;
+  }
+  if (params.status) {
+    sql += ` and status='${params.status}' `;
   }
   sql += " order by createtime desc;";
+  console.log(sql);
   return exec(sql);
 };
 const getDetail = (id) => {
@@ -42,10 +60,11 @@ const newSite = (blogData = {}) => {
   const detailedAddress = blogData.detailedAddress;
   const wagesAndBenefits = blogData.wagesAndBenefits;
   const notes = blogData.notes;
+  const createTime = Date.now();
 
   const sql = `
-        insert into takeOut (notes,wagesAndBenefits,detailedAddress,dormitoryPrice,electroMobilePrice,webmasterPhone,name, region, webmaster, priceLow,priceHigh,platform,hasDormitory,hasElectroMobile,status,businessCircle) 
-        values('${notes}','${wagesAndBenefits}','${detailedAddress}','${dormitoryPrice}','${electroMobilePrice}', '${webmasterPhone}','${name}', '${region[1]}', '${webmaster}', ${priceLow},  ${priceHigh}, ${platform}, ${hasDormitory}, ${hasElectroMobile}, ${status}, '${businessCircle}')
+        insert into takeOut (createTime,notes,wagesAndBenefits,detailedAddress,dormitoryPrice,electroMobilePrice,webmasterPhone,name, region, webmaster, priceLow,priceHigh,platform,hasDormitory,hasElectroMobile,status,businessCircle) 
+        values('${createTime}','${notes}','${wagesAndBenefits}','${detailedAddress}','${dormitoryPrice}','${electroMobilePrice}', '${webmasterPhone}','${name}', '${region[1]}', '${webmaster}', ${priceLow},  ${priceHigh}, ${platform}, ${hasDormitory}, ${hasElectroMobile}, ${status}, '${businessCircle}')
     `;
   console.log(sql);
   return exec(sql).then((insertData) => {

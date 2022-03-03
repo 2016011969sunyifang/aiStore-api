@@ -1,4 +1,4 @@
-const { newSite } = require("../controller/site");
+const { newSite, getList } = require("../controller/site");
 const { SuccessModel, ErrorModel } = require("../model/resModel");
 //验证是否登录
 const checkLogin = (req) => {
@@ -11,26 +11,35 @@ const handleSiteRouter = (req, res) => {
   const POST = req.method === "POST";
   const id = req.query.id || "";
 
-  // 获取博客列表
+  // 获取站点列表
   if (GET && req.path === "/api/site/list") {
-    let keyword = req.query.keyword || "";
-    let author = req.query.author || "";
-    // 管理员界面
-    if (req.query.isadmin) {
-      // 登录验证
-      const checkLoginResult = checkLogin(req);
-      if (checkLoginResult) {
-        return checkLoginResult;
-      }
-      // 强制查询自己的博客
-      author = req.session.username;
-    }
-    const result = getList(author, keyword);
+    const params = {};
+    console.log();
+    params.businessCircle = req.query.businessCircle || "";
+    params.name = req.query.name || "";
+    params.webmaster = req.query.webmaster || "";
+    params.platform = req.query.platform || "";
+    params.hasDormitory = req.query.hasDormitory || "";
+    params.hasElectroMobile = req.query.hasElectroMobile || "";
+    params.status = req.query.status || "";
+    params.region = req.query.region || "";
+    console.log(req.query);
+    // // 管理员界面
+    // if (req.query.isadmin) {
+    //   // 登录验证
+    //   const checkLoginResult = checkLogin(req);
+    //   if (checkLoginResult) {
+    //     return checkLoginResult;
+    //   }
+    //   // 强制查询自己的站点
+    //   author = req.session.username;
+    // }
+    const result = getList(params);
     return result.then((listData) => {
       return new SuccessModel(listData);
     });
   }
-  // 获取博客详情
+  // 获取站点详情
   if (GET && req.path === "/api/site/detail") {
     const detailResult = getDetail(id);
 
@@ -38,7 +47,7 @@ const handleSiteRouter = (req, res) => {
       return new SuccessModel(detailData);
     });
   }
-  // 新建一篇博客
+  // 新建一篇站点
   if (POST && req.path === "/api/site/new") {
     // // 登录验证
     // const checkLoginResult = checkLogin(req);
@@ -51,7 +60,7 @@ const handleSiteRouter = (req, res) => {
       return new SuccessModel(newData);
     });
   }
-  // 更新一篇博客
+  // 更新一篇站点
   if (POST && req.path === "/api/site/update") {
     // 登录验证
     const checkLoginResult = checkLogin(req);
@@ -65,11 +74,11 @@ const handleSiteRouter = (req, res) => {
       if (res) {
         return new SuccessModel();
       } else {
-        return new ErrorModel("更新博客失败！");
+        return new ErrorModel("更新站点失败！");
       }
     });
   }
-  // 删除一篇博客
+  // 删除一篇站点
   if (POST && req.path === "/api/site/del") {
     // 登录验证
     const checkLoginResult = checkLogin(req);
@@ -84,7 +93,7 @@ const handleSiteRouter = (req, res) => {
       if (res) {
         return new SuccessModel();
       } else {
-        return new ErrorModel("删除博客失败！");
+        return new ErrorModel("删除站点失败！");
       }
     });
   }
