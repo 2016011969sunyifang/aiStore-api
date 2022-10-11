@@ -2,7 +2,13 @@ const mysql = require("mysql");
 const { MYSQL_CONF } = require("../config/db.js");
 
 // 连接数据库
-const con = mysql.createConnection(MYSQL_CONF);
+const con = mysql.createConnection({
+  host: "106.14.196.158",
+  user: "root",
+  password: "04bf828a99fbb4d8",
+  port: "3306",
+  database: "aiStore",
+});
 
 // 连接数据库
 con.connect();
