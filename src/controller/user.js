@@ -15,10 +15,10 @@ const login = (username, password) => {
   // }
   // return false
 };
-const register = (username, password) => {
+const register = (name, password) => {
   const sql = `
-    insert into user (username, password) 
-    values('${username}', '${password}')
+    insert into user (name, password) 
+    values('${name}', '${password}')
 `;
   return exec(sql).then((insertData) => {
     return {

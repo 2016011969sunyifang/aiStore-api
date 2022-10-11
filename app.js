@@ -16,6 +16,7 @@ const getPostData = (req) => {
       return;
     }
     if (req.headers["content-type"] !== "application/json") {
+      console.log("content出错");
       resolve({});
       return;
     }

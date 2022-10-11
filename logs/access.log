@@ -489,3 +489,39 @@ GET -- /api/blog/list -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 GET -- /api -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 -- 1665380927726
 GET -- /api/login -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 -- 1665380947827
 GET -- /api/blog/list -- Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 -- 1665380974047
+GET -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665455898567
+GET -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665455944109
+GET -- /api/user/register?username=sam&password=0123456 -- PostmanRuntime/7.29.0 -- 1665455976016
+POST -- /api/user/register?username=sam&password=0123456 -- PostmanRuntime/7.29.0 -- 1665456140726
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456335046
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456348540
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456365106
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456413349
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456467019
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456498763
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456534935
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456539317
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456623952
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456660527
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456694094
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456708358
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456783261
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456787050
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456788000
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456820548
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456833301
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665456931968
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457003635
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457013942
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457014923
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457030954
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457031962
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457051725
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457067660
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457078584
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457146172
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457185296
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457245564
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457354864
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457385674
+POST -- /api/user/register -- PostmanRuntime/7.29.0 -- 1665457517298

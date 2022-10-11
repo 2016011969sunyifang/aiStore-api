@@ -1,6 +1,7 @@
 const { login, register, getUserInfo } = require("./../controller/user");
 const { SuccessModel, ErrorModel } = require("./../model/resModel");
 const handleUserRouter = (req, res) => {
+  console.log(req.body);
   const GET = req.method === "GET";
   const POST = req.method === "POST";
   //登录
@@ -40,8 +41,9 @@ const handleUserRouter = (req, res) => {
   }
   //注册
   if (POST && req.path === "/api/user/register") {
-    const { username, password } = req.body;
-    const result = register(username, password);
+    const { name, password } = req.body;
+    console.log(name, password, "ssss");
+    const result = register(name, password);
     return result.then((row) => {
       if (row) {
         // //操作cookie
