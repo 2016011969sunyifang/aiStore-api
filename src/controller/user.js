@@ -1,13 +1,13 @@
 const { exec, escape } = require("../db/mysql.js");
 const login = (name, password) => {
-  const sql = `select name from user where name=${escape(
+  const sql = `select * from user where name=${escape(
     name
   )} and password=${escape(password)}`;
   return exec(sql).then((rows) => {
+    console.log(rows[0].phone, "phone");
     return {
       rows: rows,
-      token:
-        "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
+      token: rows[0].phone,
     };
   });
 };
@@ -23,8 +23,7 @@ const register = (name, phone, password) => {
     if (rows.length == 0) {
       return exec(sql).then((insertData) => {
         return {
-          token:
-            "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
+          token: phone,
         };
       });
     } else {
@@ -32,17 +31,8 @@ const register = (name, phone, password) => {
     }
   });
 };
-const getUserInfo = (username, password) => {
-  const sql = "";
-  const userInfo = {
-    email: "1743369777@qq.com",
-    headImg: "https://s3.bmp.ovh/imgs/2022/03/bd52f28f3f79cdea.gif",
-    loginIp: "101.231.62.66",
-    name: "小嫒同学",
-    nickName: "",
-    phone: "13553550634",
-    remark: null,
-  };
+const getUserInfo = (name, password) => {
+  const sql = `select name from user where name=${escape(name)}`;
   return exec(sql).then((insertData) => {
     return userInfo;
   });
