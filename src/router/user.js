@@ -10,7 +10,7 @@ const handleUserRouter = (req, res) => {
     const result = login(name, password);
     return result.then((row) => {
       if (row.rows.length !== 0) {
-        return new SuccessModel(row, "登录成功");
+        return new SuccessModel("登录成功");
       } else {
         return new ErrorModel("登录失败");
       }
@@ -18,10 +18,6 @@ const handleUserRouter = (req, res) => {
   }
   // 获取用户信息
   if (GET && req.path === "/api/account/info") {
-    // const { username, password } = req.body;
-    // const {username, password} = req.query
-    // const result = login(username, password);
-
     const result = getUserInfo();
     return result.then((row) => {
       if (row) {
@@ -43,18 +39,5 @@ const handleUserRouter = (req, res) => {
       }
     });
   }
-  // if (method == 'GET' && req.path === '/api/user/login-test') {
-  //     if (req.session.name) {
-  //         return  Promise.resolve(
-  //             new SuccessModel({
-  //                 session: req.session
-  //             })
-  //         )
-  //     }
-  //     return  Promise.resolve(
-  //         new ErrorModel('登录失败')
-  //     )
-
-  // }
 };
 module.exports = handleUserRouter;
