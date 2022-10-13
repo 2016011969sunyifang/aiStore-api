@@ -5,19 +5,11 @@ const handleUserRouter = (req, res) => {
   const GET = req.method === "GET";
   const POST = req.method === "POST";
   //登录
-  if (POST && req.path === "/api/login") {
-    const { username, password } = req.body;
-    // const {username, password} = req.query
-    const result = login(username, password);
+  if (POST && req.path === "/api/user/login") {
+    const { name, password } = req.body;
+    const result = login(name, password);
     return result.then((row) => {
       if (row.rows.length !== 0) {
-        // //操作cookie
-        // res.setHeader('Set-Cookie',`username=${row.username};path=/;httpOnly`)
-        //设置session
-        // req.session.username = row.username;
-        // req.session.realname = row.realname;
-        // 设置redis的session的值
-        // set(req.sessionId, req.session)
         return new SuccessModel(row, "登录成功");
       } else {
         return new ErrorModel("登录失败");
@@ -41,21 +33,13 @@ const handleUserRouter = (req, res) => {
   }
   //注册
   if (POST && req.path === "/api/user/register") {
-    const { name, password } = req.body;
-    console.log(name, password, "ssss");
-    const result = register(name, password);
-    return result.then((row) => {
-      if (row) {
-        // //操作cookie
-        // res.setHeader('Set-Cookie',`username=${row.username};path=/;httpOnly`)
-        //设置session
-        // req.session.username = row.username;
-        // req.session.realname = row.realname;
-        // 设置redis的session的值
-        // set(req.sessionId, req.session)
-        return new SuccessModel(row, "注册成功");
+    const { name, phone, password } = req.body;
+    const result = register(name, phone, password);
+    return result.then((reb) => {
+      if (reb.token) {
+        return new SuccessModel(reb.token, "注册成功");
       } else {
-        return new ErrorModel("注册失败");
+        return new ErrorModel(reb.errorMessage);
       }
     });
   }
