@@ -1,7 +1,7 @@
 const { exec, escape } = require("../db/mysql.js");
-const login = (username, password) => {
-  const sql = `select username from user where username=${escape(
-    username
+const login = (name, password) => {
+  const sql = `select name from user where name=${escape(
+    name
   )} and password=${escape(password)}`;
   return exec(sql).then((rows) => {
     return {
@@ -10,26 +10,27 @@ const login = (username, password) => {
         "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
     };
   });
-  // if (username === 'sunrifa' && password === '123456') {
-  //     return true
-  // }
-  // return false
 };
-const register = (name, password) => {
+const register = (name, phone, password) => {
+  const sqlHas = `select name from user where name=${escape(
+    name
+  )} and password=${escape(password)}`;
   const sql = `
-    insert into user (name, password) 
-    values('${name}', '${password}')
+    insert into user (name, phone, password) 
+    values('${name}', '${phone}','${password}')
 `;
-  return exec(sql).then((insertData) => {
-    return {
-      token:
-        "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
-    };
+  return exec(sqlHas).then((rows) => {
+    if (rows.length == 0) {
+      return exec(sql).then((insertData) => {
+        return {
+          token:
+            "-......----.--.-/-.---......----/-.--.-.--.-..-./--------....--../-..............-/-.--.--.-.-..../---..-...--...-/-..----.--.....",
+        };
+      });
+    } else {
+      return { errorMessage: "当前用户已注册，请直接登录" };
+    }
   });
-  // if (username === 'sunrifa' && password === '123456') {
-  //     return true
-  // }
-  // return false
 };
 const getUserInfo = (username, password) => {
   const sql = "";
