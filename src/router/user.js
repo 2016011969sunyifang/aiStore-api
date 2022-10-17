@@ -17,7 +17,8 @@ const handleUserRouter = (req, res) => {
     });
   }
   // 获取用户信息
-  if (GET && req.path === "/api/account/info") {
+  if (GET && req.path === "/api/user/info") {
+    console.log(req.headers);
     const result = getUserInfo();
     return result.then((row) => {
       if (row) {
@@ -33,7 +34,7 @@ const handleUserRouter = (req, res) => {
     const result = register(name, phone, password);
     return result.then((reb) => {
       if (reb.token) {
-        return new SuccessModel(reb.token, "注册成功");
+        return new SuccessModel({ token: reb.token }, "注册成功");
       } else {
         return new ErrorModel(reb.errorMessage);
       }

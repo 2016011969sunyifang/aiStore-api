@@ -3,6 +3,9 @@ const login = (name, password) => {
   const sql = `select * from user where name=${escape(
     name
   )} and password=${escape(password)}`;
+  const sqlHas = `select id from user where name=${escape(
+    name
+  )} and password=${escape(password)}`;
   return exec(sql).then((rows) => {
     console.log(rows[0].phone, "phone");
     return {
@@ -12,7 +15,7 @@ const login = (name, password) => {
   });
 };
 const register = (name, phone, password) => {
-  const sqlHas = `select name from user where name=${escape(
+  const sqlHas = `select id from user where name=${escape(
     name
   )} and password=${escape(password)}`;
   const sql = `
@@ -22,19 +25,35 @@ const register = (name, phone, password) => {
   return exec(sqlHas).then((rows) => {
     if (rows.length == 0) {
       return exec(sql).then((insertData) => {
-        return {
-          token: phone,
-        };
+        return exec(sqlHas).then((hasData) => {
+          console.log(hasData, "hasData");
+          if (hasData.length !== 0) {
+            const insertSql = `
+            insert into access_token (user_id, token) 
+            values('${hasData[0].id}', '${phone}')
+            `;
+            return exec(insertSql).then((insertData) => {
+              return {
+                token: phone,
+              };
+            });
+          } else {
+            return {
+              token: phone,
+            };
+          }
+        });
       });
     } else {
       return { errorMessage: "当前用户已注册，请直接登录" };
     }
   });
 };
+
 const getUserInfo = (name, password) => {
   const sql = `select name from user where name=${escape(name)}`;
   return exec(sql).then((insertData) => {
-    return userInfo;
+    return "";
   });
   // if (username === 'sunrifa' && password === '123456') {
   //     return true
