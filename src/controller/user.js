@@ -3,15 +3,15 @@ const login = (name, password) => {
   const sql = `select * from user where name=${escape(
     name
   )} and password=${escape(password)}`;
-  const sqlHas = `select id from user where name=${escape(
-    name
-  )} and password=${escape(password)}`;
   return exec(sql).then((rows) => {
-    console.log(rows[0].phone, "phone");
-    return {
-      rows: rows,
-      token: rows[0].phone,
-    };
+    const sqlToken = `select token from access_token where user_id=${escape(
+      rows[0].id
+    )}`;
+    return exec(sqlToken).then((insertData) => {
+      return {
+        token: rows[0].phone,
+      };
+    });
   });
 };
 const register = (name, phone, password) => {

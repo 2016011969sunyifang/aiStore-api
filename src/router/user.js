@@ -9,8 +9,8 @@ const handleUserRouter = (req, res) => {
     const { name, password } = req.body;
     const result = login(name, password);
     return result.then((row) => {
-      if (row.rows.length !== 0) {
-        return new SuccessModel("登录成功");
+      if (row) {
+        return new SuccessModel(row, "登录成功");
       } else {
         return new ErrorModel("登录失败");
       }
