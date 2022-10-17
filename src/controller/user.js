@@ -50,10 +50,35 @@ const register = (name, phone, password) => {
   });
 };
 
-const getUserInfo = (name, password) => {
-  const sql = `select name from user where name=${escape(name)}`;
-  return exec(sql).then((insertData) => {
-    return "";
+const getUserInfo = (req) => {
+  console.log(req, "reqreqreq");
+  const sql = `select user_id from access_token where token=${escape(
+    req.headers.token
+  )}`;
+
+  return exec(sql).then(async (user) => {
+    try {
+      let userInfo = {};
+      const getUSerCoin = `select balance from coin where user_id=${escape(
+        user[0].user_id
+      )}`;
+      console.log(user[0].user_id, "user");
+      let result = await exec(getUSerCoin);
+      console.log(result, "result");
+      userInfo.coin = result[0].balance;
+      const getUSerInfo = `select * from user where id=${escape(
+        user[0].user_id
+      )}`;
+      let resultInfo = await exec(getUSerInfo);
+      console.log(resultInfo, "resultInfo");
+      const { password, ...resInfo } = resultInfo[0];
+      console.log(resInfo, "resInfo");
+      userInfo = { ...userInfo, ...resInfo };
+      return userInfo;
+    } catch (error) {
+      console.log(error);
+      return "";
+    }
   });
   // if (username === 'sunrifa' && password === '123456') {
   //     return true
