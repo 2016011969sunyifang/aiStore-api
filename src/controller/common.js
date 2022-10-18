@@ -13,7 +13,8 @@ const uploadImg = async (req) => {
       // form.encoding = 'utf-8'
       // // 2.2 设置上传文件的存放路径，一定给一个全路径，否则报错
       let form = new IncomingForm();
-      form.uploadDir = __dirname + "/public/images";
+      form.uploadDir = __dirname;
+      console.log(form.uploadDir);
       // // 2.3 设置是否保留文件的扩展名，默认不保留
       form.keepExtensions = true;
       // 3.调用上传方法,实现文件上传
@@ -29,7 +30,8 @@ const uploadImg = async (req) => {
           return null;
         } else {
           console.log(3333333333333333333333);
-
+          console.log(fields, "fieldsfieldsfieldsfieldsfields");
+          console.log(files, "filesfilesfilesfilesfiles");
           return 1;
         }
       });
