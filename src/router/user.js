@@ -18,7 +18,6 @@ const handleUserRouter = (req, res) => {
   }
   // 获取用户信息
   if (GET && req.path === "/api/user/info") {
-    console.log(req.headers);
     const result = getUserInfo({ headers: req.headers });
     return result.then((row) => {
       if (row) {

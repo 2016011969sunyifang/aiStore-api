@@ -3,6 +3,7 @@ const handleBlogRouter = require("./src/router/blog");
 const handleUserRouter = require("./src/router/user");
 const handleMenuRouter = require("./src/router/menu");
 const handleSiteRouter = require("./src/router/site");
+const handleCommonRouter = require("./src/router/common");
 const { access } = require("./src/utils/log");
 const { setAccessControl } = require("./src/utils/accessControl");
 
@@ -13,6 +14,13 @@ const getPostData = (req) => {
   const promise = new Promise((resolve, reject) => {
     if (req.method !== "POST") {
       resolve({});
+      return;
+    }
+    console.log(req.headers["content-type"], 'req.headers["Content-Type"]');
+
+    if (req.headers["content-type"].includes("multipart/form-data")) {
+      console.log("文件上传");
+      resolve(req);
       return;
     }
     if (req.headers["content-type"] !== "application/json") {
@@ -101,6 +109,18 @@ const serverHandle = (req, res) => {
         }
         res.end(JSON.stringify(blogData));
       });
+      return;
+    }
+    // 处理commonRequest路由
+    const commonResult = handleCommonRouter(req.body, res);
+    if (commonResult) {
+      commonResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
       return;
     }
     // 处理menu路由
