@@ -4,6 +4,7 @@ const handleUserRouter = require("./src/router/user");
 const handleMenuRouter = require("./src/router/menu");
 const handleSiteRouter = require("./src/router/site");
 const handleCommonRouter = require("./src/router/common");
+const handleWishListRouter = require("./src/router/wishList");
 const { access } = require("./src/utils/log");
 const { setAccessControl } = require("./src/utils/accessControl");
 
@@ -115,6 +116,18 @@ const serverHandle = (req, res) => {
     const commonResult = handleCommonRouter(req.body, res);
     if (commonResult) {
       commonResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
+      return;
+    }
+    // 处理menu路由
+    const wishListResult = handleWishListRouter(req, res);
+    if (wishListResult) {
+      wishListResult.then((menuData) => {
         if (needSetCookie) {
           res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
         }
