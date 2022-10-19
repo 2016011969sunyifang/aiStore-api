@@ -7,6 +7,7 @@ const handleUserRouter = (req, res) => {
   if (POST && req.path === "/api/common/uploadImg") {
     const result = uploadImg(req);
     return result.then((row) => {
+      console.log(row, "rowrow");
       if (row) {
         return new SuccessModel(row, "文件上传成功");
       } else {
