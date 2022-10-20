@@ -9,9 +9,9 @@ const handleWishListRouter = (req, res) => {
     return result.then((row) => {
       console.log(row, "rowrow");
       if (row) {
-        return new SuccessModel(row, "文件上传成功");
+        return new SuccessModel(row, "心愿单新增成功");
       } else {
-        return new ErrorModel("文件上传失败");
+        return new ErrorModel("心愿单新增失败");
       }
     });
   }
