@@ -653,3 +653,5 @@ POST -- /api/common/uploadImg -- PostmanRuntime/7.29.0 -- 1666149559266
 POST -- /api/common/uploadImg -- PostmanRuntime/7.29.0 -- 1666149812880
 POST -- /api/common/uploadImg -- PostmanRuntime/7.29.0 -- 1666149868866
 POST -- /api/common/uploadImg -- PostmanRuntime/7.29.0 -- 1666149924257
+POST -- /api/wishList/insert -- PostmanRuntime/7.29.0 -- 1666260915562
+POST -- /api/wishList/insert -- PostmanRuntime/7.29.0 -- 1666261020586
