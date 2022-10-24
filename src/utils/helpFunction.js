@@ -1,7 +1,7 @@
 const { exec, escape } = require("../db/mysql.js");
 
 function getSelectByConditions(tableName, conditions, pageOption) {
-  let sql = `select * from ${tableName} where 1=1`;
+  let sql = `select * from ${tableName} where 1=1 and state = 1`;
   const { index, pageSize, sortArr } = pageOption;
   for (const key in conditions) {
     if (conditions[key]) {

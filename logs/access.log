@@ -676,3 +676,9 @@ GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -
 GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -- 1666593706313
 GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -- 1666594395425
 GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -- 1666594425087
+GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -- 1666594443520
+GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -- 1666596403203
+POST -- /api/wishList/delete -- PostmanRuntime/7.29.0 -- 1666596484318
+POST -- /api/wishList/delete -- PostmanRuntime/7.29.0 -- 1666596538095
+POST -- /api/wishList/delete -- PostmanRuntime/7.29.0 -- 1666596573187
+GET -- /api/wishList/get?title=sam&index=1&pageSize=2 -- PostmanRuntime/7.29.0 -- 1666596576559

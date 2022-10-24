@@ -68,7 +68,26 @@ const getWishList = async (req) => {
     console.log(error);
   }
 };
+//删除心愿单
+const deleteWishList = async (req) => {
+  try {
+    let user_id = await dealToken(req.headers.token);
+
+    if (user_id) {
+      const { id } = req.body;
+      const deleteWishListSql = `update wish_list set state='0' where id=${id};`;
+      return exec(deleteWishListSql).then((deleteData) => {
+        if (deleteData) {
+          return "心愿删除成功";
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports = {
   insertWishList,
   getWishList,
+  deleteWishList,
 };
