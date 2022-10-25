@@ -2,9 +2,11 @@ const quertstring = require("querystring");
 const handleBlogRouter = require("./src/router/blog");
 const handleUserRouter = require("./src/router/user");
 const handleMenuRouter = require("./src/router/menu");
-const handleSiteRouter = require("./src/router/site");
 const handleCommonRouter = require("./src/router/common");
 const handleWishListRouter = require("./src/router/wishList");
+const handleUserAddressRouter = require("./src/router/userAddress");
+const handleOrderListRouter = require("./src/router/orderList");
+const handleProductRouter = require("./src/router/product");
 const { access } = require("./src/utils/log");
 const { setAccessControl } = require("./src/utils/accessControl");
 
@@ -124,10 +126,46 @@ const serverHandle = (req, res) => {
 
       return;
     }
-    // 处理menu路由
+    // 处理心愿单路由
     const wishListResult = handleWishListRouter(req, res);
     if (wishListResult) {
       wishListResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
+      return;
+    }
+    // 处理收货地址路由
+    const userAddressResult = handleUserAddressRouter(req, res);
+    if (userAddressResult) {
+      userAddressResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
+      return;
+    }
+    // 处理订单路由
+    const orderListResult = handleOrderListRouter(req, res);
+    if (orderListResult) {
+      orderListResult.then((menuData) => {
+        if (needSetCookie) {
+          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
+        }
+        res.end(JSON.stringify(menuData));
+      });
+
+      return;
+    }
+    // 处理商品路由
+    const productResult = handleProductRouter(req, res);
+    if (productResult) {
+      productResult.then((menuData) => {
         if (needSetCookie) {
           res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
         }
@@ -140,18 +178,6 @@ const serverHandle = (req, res) => {
     const menuResult = handleMenuRouter(req, res);
     if (menuResult) {
       menuResult.then((menuData) => {
-        if (needSetCookie) {
-          res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
-        }
-        res.end(JSON.stringify(menuData));
-      });
-
-      return;
-    }
-    // 处理外卖站点路由
-    const siteResult = handleSiteRouter(req, res);
-    if (siteResult) {
-      siteResult.then((menuData) => {
         if (needSetCookie) {
           res.setHeader("Set-Cookie", `userid=${userId}; path=/; httpOnly; `);
         }

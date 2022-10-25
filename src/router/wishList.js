@@ -32,7 +32,7 @@ const handleWishListRouter = (req, res) => {
       }
     });
   }
-  // 删除
+  // 心愿单审批
   if (POST && req.path === "/api/wishList/deal") {
     const result = dealWishList(req);
     return result.then((row) => {
