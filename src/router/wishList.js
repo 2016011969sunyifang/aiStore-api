@@ -2,6 +2,7 @@ const {
   insertWishList,
   getWishList,
   deleteWishList,
+  dealWishList,
 } = require("./../controller/wishList");
 const { SuccessModel, ErrorModel } = require("./../model/resModel");
 const handleWishListRouter = (req, res) => {
@@ -28,6 +29,18 @@ const handleWishListRouter = (req, res) => {
         return new SuccessModel(row, "心愿单删除成功");
       } else {
         return new ErrorModel("心愿单删除失败");
+      }
+    });
+  }
+  // 删除
+  if (POST && req.path === "/api/wishList/deal") {
+    const result = dealWishList(req);
+    return result.then((row) => {
+      console.log(row, "rowrow");
+      if (row) {
+        return new SuccessModel(row, "心愿单审批成功");
+      } else {
+        return new ErrorModel("心愿单审批失败");
       }
     });
   }
